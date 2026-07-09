@@ -1,10 +1,51 @@
 """
 Prometheus Exporter
 
-Metrics are exposed directly by FastAPI
-through the /metrics endpoint using
-prometheus_client.
+Author : Muhammad Keisa Nabhan
 """
 
-print("Prometheus metrics available at:")
-print("http://localhost:8000/metrics")
+from prometheus_client import (
+    Counter,
+    Histogram,
+    generate_latest,
+    CONTENT_TYPE_LATEST
+)
+
+from fastapi.responses import Response
+
+
+# ======================================================
+# PROMETHEUS METRICS
+# ======================================================
+
+REQUEST_COUNT = Counter(
+    "prediction_requests_total",
+    "Total prediction requests"
+)
+
+POSITIVE_PREDICTION = Counter(
+    "prediction_positive_total",
+    "Total positive predictions"
+)
+
+NEGATIVE_PREDICTION = Counter(
+    "prediction_negative_total",
+    "Total negative predictions"
+)
+
+PREDICTION_LATENCY = Histogram(
+    "prediction_latency_seconds",
+    "Prediction latency"
+)
+
+
+# ======================================================
+# METRICS RESPONSE
+# ======================================================
+
+def metrics_response():
+
+    return Response(
+        content=generate_latest(),
+        media_type=CONTENT_TYPE_LATEST
+    )
