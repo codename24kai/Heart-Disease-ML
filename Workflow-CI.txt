@@ -1,15 +1,6 @@
-Workflow Continuous Integration (CI)
+Repository Workflow Continuous Integration
 
-Repository menggunakan GitHub Actions untuk melakukan proses Continuous Integration (CI). Workflow akan dijalankan secara otomatis setiap kali terjadi push atau pull request pada branch main.
+Nama        : Muhammad Keisa Nabhan
 
-Tahapan workflow yang dijalankan meliputi:
-
-1. Checkout source code dari repository GitHub.
-2. Menyiapkan environment Python versi 3.13.
-3. Menginstal seluruh dependency yang terdapat pada file requirements.txt.
-4. Menjalankan proses preprocessing dataset.
-5. Menjalankan proses pelatihan model menggunakan file modelling.py.
-6. Menjalankan proses hyperparameter tuning menggunakan file modelling_tuning.py.
-7. Memastikan seluruh proses selesai tanpa error sebagai validasi bahwa pipeline Machine Learning dapat dijalankan secara otomatis.
-
-Workflow ini bertujuan untuk memastikan setiap perubahan kode tidak merusak proses preprocessing, pelatihan model, maupun hyperparameter tuning sehingga kualitas pipeline Machine Learning tetap terjaga.
+GitHub Repository:
+https://github.com/codename24kai/workflow-ci-heart-disease-m-keisanabhan
